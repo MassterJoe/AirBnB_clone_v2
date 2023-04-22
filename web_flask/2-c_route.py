@@ -14,16 +14,19 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
+    """ prints Hello HBNB"""
     return "Hello HBNB!"
 
 
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
+    """ prints HBNB"""
     return "HBNB"
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def text(text):
+def C(text):
+    """ prints C followed by the value of the text """
     if '_' in text:
         text = text.replace('_', " ")
     return f"C {text}"
