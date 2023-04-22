@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 """
-A script that starts a Flask web application
-listening on 0.0.0.0 and port 5000
+A script that starts a Flask web application:
+Wweb application must be listening on 0.0.0.0, port 5000
+    Routes:
+        /: display “Hello HBNB!”
+        /hbnb: display “HBNB”
+        /c/<text>: display “C ” followed by the value of
+       the text variable (replace underscore _ symbols with a space )
 """
 from flask import Flask
 app = Flask(__name__)
@@ -17,7 +22,7 @@ def hbnb():
     return "HBNB"
 
 
-@app.route('/c/<text>')
+@app.route('/c/<text>', strict_slashes=False)
 def text(text):
     if '_' in text:
         text = text.replace('_', " ")
