@@ -3,26 +3,26 @@
 
 
 # install nginx if its not already installed
-#if ! command -v nginx &> /dev/null
-#then
-sudo apt-get update
-sudo apt-get install -y nginx
-#fi
+# if ! command -v nginx &> /dev/null
+# then
+apt-get update
+apt-get install -y nginx
+# fi
 
 # create directories
-sudo mkdir -p /data/web_static/releases/test/
-sudo mkdir -p /data/web_static/shared/
+mkdir -p /data/web_static/releases/test/
+mkdir -p /data/web_static/shared/
 
-#create a fake html file
-sudo touch /data/web_static/releases/test/index.html
+# create a fake html file
+touch /data/web_static/releases/test/index.html
 echo "Holberton School" > /data/web_static/releases/test/index.html
 
-#create a symbolic link
-sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
+# create a symbolic link
+ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 # give owenership to user and group
-sudo chown -R ubuntu /data/
-sudo chgrp -R ubuntu /data/
+chown -R ubuntu /data/
+chgrp -R ubuntu /data/
 # update the nginx configuration to serve /data/web_static/current/ to hbnb_static
 
 printf %s "server {
@@ -49,4 +49,4 @@ internal;
 
 }" > /etc/nginx/sites-available/default
 
-sudo service nginx restart
+service nginx restart
