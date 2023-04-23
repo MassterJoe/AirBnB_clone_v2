@@ -21,8 +21,8 @@ echo "Holberton School" > /data/web_static/releases/test/index.html
 sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 # give owenership to user and group
-sudo chown -R ubuntu:ubuntu /data/
-
+sudo chown -R ubuntu /data/
+sudo chgrp -R ubuntu /data/
 # update the nginx configuration to serve /data/web_static/current/ to hbnb_static
 
 printf %s "server {
